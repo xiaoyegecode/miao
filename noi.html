@@ -112,9 +112,12 @@
 
 <script id="ch0103/13" type="xxx">
 
-  var n = Number(prompt('请输如n'))
-
-  console.log(n % 10)*100 + console.log(n % 100 - (n % 10)) + console.log((n - (n % 100)) / 100
+  var n = Number(prompt('请输如一个三位数n'))
+  a = (n - (n % 100)) / 100; //取百位
+  c = n % 10;                //取各位
+  b = (n % 100 - c) / 10;    //取十位
+  m = String(c) + String(b) + String(a)
+  console.log(m)
 
 </script>
 
