@@ -435,7 +435,7 @@
   var x = Number(prompt('请输入数x'))
   var y = Number(prompt('请输入数y'))
   var z = Number(prompt('请输入数z'))
-  if ((x + y) > z && (x + z) > y && (y + z) > x && (x - y) * (x - y) < z * z && (x - z) * (x - z) < y * y && (y - z) * (y - z) < x * x) {
+  if ((x + y) > z && (x + z) > y && (y + z) > x ) {
     console.log('YES')
   } else {
     console.log('NO')
@@ -474,24 +474,44 @@
   var z = Number(prompt('请输入操作符'))
   var result
 
-  if (z == "+") {
-    result = x + y
+   if (z == "+") {
+    result = a + b;
   } else if (z == "-") {
-    result = x - y
+    result = a - b;
   } else if (z == "*") {
-    result = x * y
+    result = a * b;
   } else if (z == "/") {
     if (y == 0) {
       result = "Divided by zero!";
     } else {
-      result = x / y
+      result = a / b;
     }
   } else {
     result = "Invalid operator!";
   }
-  console.log(result)
+  console.log(result);
 
 </script>
+
+<script id="ch0104/20" type="xxx">
+
+  var a = +prompt('请输入a的值')
+  var b = +prompt('请输入b的值')
+  var c = +prompt('请输入c的值')
+  var delta = b * b - 4 * a * c
+  if (delta > 0) {
+    var sd = Math.sqrt(delta)
+
+  } else if (delta = 0) {
+    var x = 2 / a
+  } else {
+    console.log('没有实根')
+  }
+
+
+</script>
+
+
 
 <script id="ch0104/21" type="xxx">
 
