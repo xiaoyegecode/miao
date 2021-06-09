@@ -466,29 +466,32 @@
 
 </script>
 
-<script id="ch0104/19" type="xxx">
+<script id="ch0104/19">
 
   var x = Number(prompt('请输入数x'))
   var y = Number(prompt('请输入数y'))
-  var z = Number(prompt('请输入操作符'))
-  var result
+  var z = (prompt('请输入操作符'))
 
-   if (z == "+") {
-    result = a + b;
-  } else if (z == "-") {
-    result = a - b;
-  } else if (z == "*") {
-    result = a * b;
-  } else if (z == "/") {
-    if (y == 0) {
-      result = "Divided by zero!";
+  if (z === "+") {
+    value = x + y
+    console.log(value)
+  } else if (z === "-") {
+    value = x - y
+    console.log(value)
+  } else if (z === "*") {
+    value = x * y
+    console.log(value)
+  } else if (z === "/") {
+    if (y === 0) {
+      console.log("Divided by zero!")
     } else {
-      result = a / b;
+      value = x / y
+      console.log(value)
     }
   } else {
-    result = "Invalid operator!";
+    console.log("Invalid operator!")
   }
-  console.log(result);
+
 
 </script>
 
