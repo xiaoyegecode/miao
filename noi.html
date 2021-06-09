@@ -466,7 +466,7 @@
 
 </script>
 
-<script id="ch0104/19">
+<script id="ch0104/19" type="xxx">
 
   var x = Number(prompt('请输入数x'))
   var y = Number(prompt('请输入数y'))
@@ -495,19 +495,20 @@
 
 </script>
 
-<script id="ch0104/20" type="xxx">
+<script id="ch0104/20">
 
   var a = +prompt('请输入a的值')
   var b = +prompt('请输入b的值')
   var c = +prompt('请输入c的值')
   var delta = b * b - 4 * a * c
-  if (delta > 0) {
-    var sd = Math.sqrt(delta)
-
-  } else if (delta = 0) {
-    var x = 2 / a
+  var x1 = -b + Math.sqrt(delta) / 2 * a
+  var x2 = -b - Math.sqrt(delta) / 2 * a
+  if (delta == 0) {
+    console.log("x1 = x2" + x1.toFixed(5))
+  } else if (delta > 0) {
+    x1 > x2 ? console.log('x1=' + x1.toFixed(5) + ';x2' + x2.toFixed(5) + ';') : console.log('x1=' + x2.toFixed(5) + ';x2' + x1.toFixed(5) + ';')
   } else {
-    console.log('没有实根')
+    a > 0 ? console.log('x1=' + (-b / (2 * a)).toFixed(5) + '+' + (Math.sqrt(-delta) / (2 * a)).toFixed(5) + 'i;x2=' + (-b / (2 * a)).toFixed(5) + '-' + (Math.sqrt(-delta) / (2 * a)).toFixed(5) + 'i') : console.log('x1=' + (-b / (2 * a)).toFixed(5) + '-' + (Math.sqrt(-delta) / (2 * a)).toFixed(5) + 'i;x2=' + (-b / (2 * a)).toFixed(5) + '+' + (Math.sqrt(-delta) / (2 * a)).toFixed(5) + 'i');
   }
 
 
