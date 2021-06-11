@@ -1026,3 +1026,82 @@
   console.log(result)
 
 </script>
+
+<script id="ch0105/31" type="xxx">
+  var n = Number(prompt("请输入灯数"))
+  var m = Number(prompt("请输入人数"))
+  var result = []
+
+  for (var j = 1; j <= n; j++) {
+    let flag = 1;
+    for (var i = 1; i <= m; i++) {
+      if (j % i == 0) {
+        flag *= -1;
+      }
+    }
+    if (flag < 0) {
+      result.push(j);
+    }
+  }
+  console.log(result.join());
+
+</script>
+
+<script id="ch0105/32" type="xxx">
+  var n = Number(prompt("请输入整数"))
+  var p = 1
+  var q = 2
+  var sum = 0
+
+  for (var i = 1; i <= n; i++) {
+    sum += q / p
+    var xp = q
+    q = p + q
+    p = xp
+
+  }
+  console.log(sum.toFixed(4))
+
+</script>
+
+<script id="ch0105/33" type="xxx">
+  var n = Number(prompt("请输入整数"))
+  var sum = 0
+  for (var i = 1; i <= n; i++) {
+
+    if (i % 2 == 0) {
+      sum -= 1 / i;
+    } else {
+      sum += 1 / i;
+    }
+  }
+  console.log(sum.toFixed(4));
+
+</script>
+
+
+<script id="ch0105/34" type="xxx">
+  var n = Number(prompt("请输入整数"))
+  var sum = 0
+  for (var i = 1; i <= n; i++) {
+    var f = 1;
+    for (var j = 1; j <= i; j++) {
+      f *= j;
+    }
+    sum += f;
+  }
+  console.log(sum);
+</script>
+
+<script id="ch0105/35">
+  var n = Number(prompt("请输入整数"))
+  var e = 1
+  for (var i = 1; i <= n; i++) {
+    var f = 1;
+    for (var j = 1; j <= i; j++) {
+      f *= j;
+    }
+    e += 1 / f;
+  }
+  console.log(e.toFixed(10));
+</script>
