@@ -716,7 +716,7 @@
     var n = Number(prompt("请输入第" + (i + 1) + "个整数"));
     switch (n) {
       case m:
-        a++;
+        a++; 
         break;
 
     }
@@ -725,19 +725,147 @@
 
 </script>
 
-<script id="ch0105/13" type='xxx'>
+<script id="ch0105/13" type="xxx">
   var a = Number(prompt("请输入整数a"))
   var n = Number(prompt("请输入正整数n"))
-  var a = 0
-  for (var i = 0; i < N; i = i + 1) {
-    var n = Number(prompt("请输入第" + (i + 1) + "个整数"));
-    switch (n) {
-      case m:
-        a++;
-        break;
+  var result = 1
+  for (var i = 0; i < n; i = i + 1) {
+    result *= a
 
+  }
+  console.log(result);
+
+</script>
+
+<script id="ch0105/14" type="xxx">
+  var x = Number(prompt("请输入人口基数x"))
+  var n = Number(prompt("请输入年数n"))
+  var result = x
+  for (var i = 0; i < n; i = i + 1) {
+    result = result * 1.001
+  }
+  console.log(result.toFixed(4))
+
+</script>
+
+<script id="ch0105/15" type="xxx">
+  var R = Number(prompt("请输入复合年利率"))
+  var M = Number(prompt("请输入总金额"))
+  var Y = Number(prompt("请输入投资年数"))
+  var result = M
+  for (var i = 0; i < Y; i = i + 1) {
+    result = result * (1 + R / 100)
+  }
+  console.log(parseInt(result))
+
+</script>
+
+<script id="ch0105/16" type="xxx">
+  var N = Number(prompt("请输入年薪"))
+  var K = Number(prompt("请输入年增长率"))
+  var CK = N
+  var price = 200
+  var result = 'Impossible'
+
+  for (var i = 1; i <= 20; i = i + 1) {
+    if (CK > price) {
+      result = i;
+      break;
+    }
+    price *= 1 + K / 100;
+    CK += N;
+  }
+  console.log(result);
+</script>
+
+<script id="ch0105/17" type="xxx">
+  var K = Number(prompt("请输入正整数K"))
+  var a1 = 0
+  var a2 = 1
+  var fib = 0
+  if (K == 1) {
+    fib = 1;
+  } else {
+    for (var i = 0; i < K - 1; i = i + 1) {
+      fib = a1 + a2
+      a1 = a2
+      a2 = fib
     }
   }
-  console.log(a);
+
+  console.log(fib);
+</script>
+
+<script id="ch0105/18" type="xxx">
+
+  var n = Number(prompt("请输入总组数"))
+  var a = Number(prompt("请输入鸡尾酒疗法总病例数"))
+  var b = Number(prompt("请输入鸡尾酒疗法有效病例数"))
+  var x = b / a
+
+  for (var i = 1; i < n; i = i + 1) {
+    var a = Number(prompt("请输入第" + (i + 1) + "组总病例数"))
+    var b = Number(prompt("请输入第" + (i + 1) + "组有效病例数"))
+    var y = b / a
+    if (y - x > 0.05) {
+      console.log("better");
+    } else if (y - x < -0.05) {
+      console.log("worse");
+    } else {
+      console.log("same");
+    }
+  }
+
+</script>
+
+
+<script id="ch0105/19" type="xxx">
+
+  var n = Number(prompt("请输入屋顶数"))
+
+  for (var i = 0; i < n; i = i + 1) {
+    var a = Number(prompt("请输入第" + (i + 1) + "个屋顶横坐标"))
+    var b = Number(prompt("请输入第" + (i + 1) + "个屋顶纵坐标"))
+    var c = Number(prompt("请输入屋顶人数"))
+    var y = Math.sqrt(a * a + b * b)
+    var time = (y / 25 + 1.5 * c)
+    total_time = time + time
+  }
+  console.log(Math.ceil(total_time))
+
+</script>
+
+<script id="ch0105/20" type="xxx">
+
+  var h = Number(prompt("请输入高度"))
+  var dist = 0
+  var bounce_height = h
+  var dist = bounce_height
+  var bounce_height = bounce_height / 2
+
+  for (var i = 0; i < 9; i = i + 1) {
+    dist += bounce_height * 2
+    bounce_height = bounce_height / 2
+
+  }
+  console.log(dist);
+  console.log(bounce_height);
+
+</script>
+
+<script id="ch0105/21">
+  debugger
+  var n = Number(prompt("请输入正整数"))
+
+  while (n !== 1) {
+    if (n % 2 == 0) {
+      console.log(`${n}/2=${n / 2}`);
+      n = n / 2;
+    } else {
+      console.log(`${n}*3+1=${n * 3 + 1}`);
+      n = n * 3 + 1;
+    }
+  }
+  console.log("End");
 
 </script>
