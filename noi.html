@@ -837,7 +837,7 @@
 
 <script id="ch0105/20" type="xxx">
 
-  var h = Number(prompt("请输入高度"))
+  var h = Number(prompt("请输入高度" ))
   var dist = 0
   var bounce_height = h
   var dist = bounce_height
@@ -853,8 +853,8 @@
 
 </script>
 
-<script id="ch0105/21">
-  debugger
+<script id="ch0105/21" type="xxx">
+
   var n = Number(prompt("请输入正整数"))
 
   while (n !== 1) {
@@ -867,5 +867,80 @@
     }
   }
   console.log("End");
+
+</script>
+
+<script id="ch0105/22" type="xxx">
+
+  var total_m = 0 // 手上总共的钱
+  var total_s = 0  // 存储总共的钱
+
+  for (var i = 1; i <= 12; i++) {
+    total_m += 300
+    var n = Number(prompt("请输入第" + i + "月预算"))
+    total_m = total_m - n
+    if (total_m >= 100) {
+      var s = Math.floor(total_m / 100) * 100
+      total_m -= s
+      total_s += s
+    }
+    if (total_m < 0) {
+      console.log("-" + (i));
+      break
+    }
+  }
+  if (total_m > 0) {
+    total_m += total_s * 1.2
+    console.log(total_s)
+  }
+
+</script>
+
+<script id="ch0105/23" type="xxx">
+
+  var m = Number(prompt("请输入药品总量"))
+  var n = Number(prompt("请输入取药人数"))
+  var count = 0;
+  for (var i = 1; i < n; i++) {
+    var num = Number(prompt("请输入第" + i + "人取药数量"))
+    if (m >= num) {
+      m -= num
+    } else {
+      count++
+    }
+  }
+  console.log(count)
+
+</script>
+
+<script id="ch0105/24" type="xxx">
+  var n = Number(prompt("请输入整数"))
+  var count = 0
+  for (var i = 0; i < n; i++) {
+    var a = Number(prompt("请输入收缩压"))
+    var b = Number(prompt("请输入舒张压"))
+    if (a >= 90 && a <= 140 && b >= 60 && b <= 90) {
+      count++
+    } else {
+      count = 0
+    }
+  }
+  console.log(count)
+
+</script>
+
+<script id="ch0105/25" type="xxx">
+  var n = Number(prompt("请输入整数"))
+  var count = 0
+  for (var i = 0; i < n; i++) {
+    var a = Number(prompt("请输入收缩压"))
+    var b = Number(prompt("请输入舒张压"))
+    if (a >= 90 && a <= 140 && b >= 60 && b <= 90) {
+      count++
+    } else {
+      count = 0
+    }
+  }
+  console.log(count)
 
 </script>
