@@ -1093,7 +1093,7 @@
   console.log(sum);
 </script>
 
-<script id="ch0105/35">
+<script id="ch0105/35" type="xxx">
   var n = Number(prompt("请输入整数"))
   var e = 1
   for (var i = 1; i <= n; i++) {
@@ -1104,4 +1104,107 @@
     e += 1 / f;
   }
   console.log(e.toFixed(10));
+</script>
+
+<script id="ch0105/36" type="xxx">
+  var x = Number(prompt("请输入浮点数"))
+  var n = Number(prompt("请输入正整数"))
+  var sum = 0
+  for (var i = 0; i <= n; i++) {
+    sum += Math.pow(x, i)
+
+  }
+  console.log(sum.toFixed(2))
+</script>
+
+<script id="ch0105/37" type="xxx">
+  var M = Number(prompt("请输入体力最大值")) // 初始值为 0 
+  var N = Number(prompt("请输入战斗力"))
+  var X = Number(prompt("请输入能量元素"))
+  let Z = 0; // 体力值
+  // 当 能量元素吃完 或者 战斗力超过 M 时，停止
+  while (Z >= 0 && N <= M) {
+    // 吃能量元素，补充体力到 M
+    while (Z < M) {
+      X--;
+      Z += N;
+    }
+    Z = M;
+    // 战斗
+    while (Z > 0) {
+      Z -= N;
+      N++;
+    }
+    //
+    Z = 0;
+  }
+  console.log(N);
+
+
+</script>
+
+<script id="ch0105/39" type="type">
+  var n = Number(prompt("请输入整数")) //n<100
+  var sum = 0
+  for (var i = 1; i <= n; i++) {
+    if (i % 7 !== 0 && i % 10 !== 7 && (i - (i % 10)) / 10 !== 7) {
+      sum += i ** 2;
+    }
+  }
+  console.log(sum)
+</script>
+
+<script id="ch0105/40" type="xxx">
+  var n = Number(prompt("请输入整数"))
+  var count = 0
+  for (var i = 1; i <= n; i++) {
+    var num = i
+    while (num >= 1) {
+      var digit = num % 10;
+      if (digit == 1) {
+        count += 1
+      }
+      num = (num - (num % 10)) / 10;
+    }
+  }
+  console.log(count);
+</script>
+
+<script id="ch0105/41" type="xxx">
+  var l = Number(prompt("请输入整数"))
+  var r = Number(prompt("请输入整数"))
+  var count = 0
+  for (var i = 1; i <= r; i++) {
+    var num = i
+    while (num >= 1) {
+      var digit = num % 10; //个位
+      if (digit == 2) {
+        count += 1
+      }
+      num = (num - (num % 10)) / 10; //十位
+    }
+  }
+  console.log(count);
+</script>
+
+
+<script id="ch0105/42" type="xxx">
+  var a = Number(prompt("请输入矩形高度"))  // 3<a<10
+  var b = Number(prompt("请输入矩形宽度"))  // 5<b<10
+  var c = Number(prompt("请输入符号"))
+  var d = Number(prompt("请输入参数"))
+  var board = c
+  for (var x = 0; x < a; x++) {
+    for (var y = 0; y < a; y++) {
+      if (d == 0) {
+        board += "@"
+      }
+      if (d == 1) {
+        board += "#"
+      }
+    }
+    board += "\n"
+  }
+
+  console.log(board);
 </script>
