@@ -37,7 +37,6 @@
   console.log(x.toFixed(9))
 </script>
 
-
 <script id="ch0103/06" type="xxx">
   var a = Number(prompt('请输入确诊数a'))
   var b = Number(prompt('请输入死亡数b'))
@@ -80,7 +79,6 @@
 
 </script>
 
-
 <script id="ch0103/10" type="xxx">
 
   var r1 = Number(prompt('请输入r1'))
@@ -110,7 +108,6 @@
 
 </script>
 
-
 <script id="ch0103/13" type="xxx">
 
   var n = Number(prompt('请输如一个三位数n'))
@@ -121,7 +118,6 @@
   console.log(m)
 
 </script>
-
 
 <script id="ch0103/14" type="xxx">
 
@@ -146,6 +142,7 @@
   console.log(Math.floor(pg))
 
 </script>
+
 <script id="ch0103/16" type="xxx">
 
   var x1 = Number(prompt('请输入x1'))
@@ -301,8 +298,6 @@
 
 </script>
 
-</script>
-
 <script id="ch0104/08" type="xxx">
 
   var N = Number(prompt('请输入N'))
@@ -399,7 +394,6 @@
   }
 
 </script>
-
 
 <script id="ch0104/14" type="xxx">
 
@@ -513,8 +507,6 @@
 
 
 </script>
-
-
 
 <script id="ch0104/21" type="xxx">
 
@@ -818,7 +810,6 @@
 
 </script>
 
-
 <script id="ch0105/19" type="xxx">
 
   var n = Number(prompt("请输入屋顶数"))
@@ -872,7 +863,7 @@
 
 </script>
 
-<script id="ch0105/22">
+<script id="ch0105/22" type="xxx">
 
   var hand = 0 // 手上的钱
   var stock = 0 //已经存的钱
@@ -1080,7 +1071,6 @@
 
 </script>
 
-
 <script id="ch0105/34" type="xxx">
   var n = Number(prompt("请输入整数"))
   var sum = 0
@@ -1153,7 +1143,6 @@
 
 </script>
 
-
 <script id="ch0105/39" type="type">
   var n = Number(prompt("请输入整数")) //n<100
   var sum = 0
@@ -1198,7 +1187,6 @@
   console.log(count);
 </script>
 
-
 <script id="ch0105/42" type="xxx">
   var a = Number(prompt("请输入矩形高度"))  // 3<a<10
   var b = Number(prompt("请输入矩形宽度"))  // 5<b<10
@@ -1221,24 +1209,51 @@
 </script>
 
 <script id="ch0105/43" type="xxx">
-  var a = Number(prompt("请输入矩形高度")) 
-  var b = Number(prompt("请输入矩形宽度"))  
-  
+  var n = Number(prompt("请输入整数"))
+  for (i = 2; ; i++) {
+    if (n % i == 0) {
+      console.log(n / i)
+      break
+    }
+  }
 
-  console.log(board);
 </script>
 
-
 <script id="ch0105/44" type="xxx">
-  var n = Number(prompt("请输入整数")) 
-  var count = 0  
-  
- 
+  var n = Number(prompt("请输入整数"))
+  var count = 0
+  for (i = 2; ; i++) {
+    var isPrise = true
+    for (var j = 2; j < i; j++) {
+      if (i % j == 0) {//用i除以 2~i-1 之间所有的数
+        isPrise = false
+        break
+      }
+    }
+    if (isPrise) {
+      count++
+    }
+    if (count == n) {
+      console.log(i)
+      break
+    }
+  }
+
+
 </script>
 
 <script id="ch0105/45" type="xxx">
-  var n = Number(prompt("请输入整数")) 
-  var b = Number(prompt("请输入矩形宽度"))  
-  
- 
+  var n = Number(prompt("请输入天数"))
+  var sum = 0
+  var coin = 1
+  var day = 0 //某种面额收了多少天
+  for (i = 1; i <= n; i++) {
+    sum += coin; day++
+    if (coin == day) {
+      coin++
+      day = 0
+    }
+  }
+  console.log(sum)
+
 </script>
