@@ -872,16 +872,18 @@
 
 </script>
 
-<script id="ch0105/22" type="xxx">
+<script id="ch0105/22">
 
   var hand = 0 // 手上的钱
   var stock = 0 //已经存的钱
+  var ok = true
 
   for (var i = 1; i <= 12; i++) {
     hand += 300  // 月初给的零花钱
     var budget = Number(prompt('第' + i + '月预算')) //本月预算
     if (hand < budget) { //手上已有的钱不足本月预算
       console.log(-i)
+      ok = false
       break
     }
 
@@ -892,12 +894,12 @@
       hand = hand % 100  // 零头的钱
     }
   }
-
-  console.log(stock * 1.2)
+  if (ok)
+    console.log(stock * 1.2)
 
 </script>
 
-<script id="ch0105/23">
+<script id="ch0105/23" type="xxx">
 
   var m = Number(prompt("请输入药品总量"))
   var n = Number(prompt("请输入取药人数"))
