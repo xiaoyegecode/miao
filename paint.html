@@ -131,8 +131,28 @@
 
   // //画两个个空心的圆，居中：
   //       * 一个半径为50像素
-  //   * 一个半径为200像素
 
+  for (let i = 200; i < 300; i = i + 0.01) {
+    dot(i, 250 + Math.sqrt(2500 - (i - 250) ** 2), 'green');
+    dot(i, 250 - Math.sqrt(2500 - (i - 250) ** 2), 'green');
+
+  }
+
+  //   * 一个半径为200像素
+  for (let i = 50; i < 450; i = i + 0.01) {
+    dot(i, 250 + Math.sqrt(40000 - (i - 250) ** 2), 'green');
+    dot(i, 250 - Math.sqrt(40000 - (i - 250) ** 2), 'green');
+
+  }
+
+  //画一个实心的圆，半径至少为100像素
+
+  for (let r = 0; r <= 100; r++) {
+    for (let i = 300; i <= 500; i = i + 0.05) {
+      dot(i, 300 + Math.sqrt(r ** 2 - (i - 400) ** 2), "black");
+      dot(i, 300 - Math.sqrt(r ** 2 - (i - 400) ** 2), "black");
+    }
+  }
 
 </script>
 
