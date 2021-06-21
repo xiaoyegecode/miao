@@ -1374,3 +1374,69 @@
   }
 
 </script>
+
+<script id="prime" type="xxx">
+  //判断一个数是否是素数
+  function isPrime(i) {
+    var sqrt_i = Math.sqrt(i)
+    for (var j = 2; j <= sqrt_i; j++) {
+      if (i % j == 0) { // 拿i除以2到i-1之间的所有数
+        return false
+      }
+    }
+    return true
+  }
+
+</script>
+
+<script id="primes" type="xxx">
+  //输出1000以内的素数
+  function isPrime(i) {
+    var sqrt_i = Math.sqrt(i)
+    for (var j = 2; j <= sqrt_i; j++) {
+      if (i % j == 0) { // 拿i除以2到i-1之间的所有数
+        return false
+      }
+    }
+    return true
+  }
+  for (var n = 1; n < 1000; n++) {
+    if (isPrime(n)) {
+      console.log(n)
+    }
+  }
+
+</script>
+
+<script id="lcf&lcm" type="xxx">
+  //输入两个数，输出它们的最大公约数和最小公倍数
+
+  function lcf(a, b) {
+    var c
+    while (a && b) { //// a b 都不为零 
+      c = a % b
+      a = b
+      b = c
+    }
+    return a || b
+  }
+
+  function lcm(a, b) {
+
+    return a * b / lcf(a, b)
+  }
+
+</script>
+
+<script id="sqrt" type=" xxxx">
+  //求一个数的平方根
+  function sqrt(a) {
+    for (var i = 0; i < a; i += 0.00000001) {
+      if (Math.abs(i * i - a) < 0.00000001) {
+        return i
+      }
+    }
+
+  }
+
+</script>
