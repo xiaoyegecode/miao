@@ -1,17 +1,16 @@
 var xiaoyegecode = function () {
 
-  function chunk(array, size = 2) {
+  function chunk(array, size) {
     if (array.lenght == 0) {
       return []
     }
-    let length = array.length
-    let res = []
-    let index = 0
-    while (index < length) {
-      res.push(array.slice(index, index + size))
+    var result = []
+    var index = 0
+    while (index < array.length) {
+      result.push(array.slice(index, index + size))
       index += size
     }
-    return res
+    return result
 
   }
 
