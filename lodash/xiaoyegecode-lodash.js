@@ -37,7 +37,7 @@ var xiaoyegecode = function () {
   return {
     chunk: chunk,
     compact: compact,
-    uniq: uniq(),
+    uniq: uniq,
   }
 
 
