@@ -1,9 +1,7 @@
 var xiaoyegecode = function () {
 
   function chunk(array, size) {
-    if (array.lenght == 0) {
-      return []
-    }
+
     var result = []
     var index = 0
     while (index < array.length) {
@@ -13,10 +11,9 @@ var xiaoyegecode = function () {
     return result
   }
 
-
   function compact(array) {
     var result = []
-    for (var i = 0; i < array.lenght; i++) {
+    for (var i = 0; i < array.length; i++) {
       if (array[i]) {
         result.push(array[i])
       }
@@ -26,7 +23,7 @@ var xiaoyegecode = function () {
 
   function uniq(array) {
     var result = []
-    for (var i = 0; i < array.lenght; i++) {
+    for (var i = 0; i < array.length; i++) {
       if (result.indexOf(array[i]) == -1) {
         result.push(array[i])
       }
@@ -37,12 +34,11 @@ var xiaoyegecode = function () {
 
 
 
-
-
-
   return {
     chunk: chunk,
     compact: compact,
     uniq: uniq(),
   }
+
+
 }()
