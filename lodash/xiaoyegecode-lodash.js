@@ -11,16 +11,38 @@ var xiaoyegecode = function () {
       index += size
     }
     return result
-
   }
 
-  function compact() {
 
+  function compact(array) {
+    var result = []
+    for (var i = 0; i < array.lenght; i++) {
+      if (array[i]) {
+        result.push(array[i])
+      }
+    }
+    return result
   }
+
+  function uniq(array) {
+    var result = []
+    for (var i = 0; i < array.lenght; i++) {
+      if (result.indexOf(array[i]) == -1) {
+        result.push(array[i])
+      }
+    }
+    return result
+  }
+
+
+
+
+
 
 
   return {
     chunk: chunk,
     compact: compact,
+    uniq: uniq(),
   }
-}
+}()
