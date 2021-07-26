@@ -31,14 +31,34 @@ var xiaoyegecode = function () {
     return result
   }
 
-
-
-
-  return {
-    chunk: chunk,
-    compact: compact,
-    uniq: uniq,
+  function differerce(array, ...values) {
+    let dif = [].concat(...values)
+    return array.filter(item => !dif.includes(item))
   }
+
+  function drop(array, n = 1) {
+    array.splice(0, n)
+    return array
+  }
+
+  function dropRight(array, n = 1) {
+    array.splice(-1, n)
+    return array
+  }
+}
+
+
+
+
+
+return {
+  chunk: chunk,
+  compact: compact,
+  uniq: uniq,
+  differerce: differerce,
+  drop: drop,
+  dropRight: dropRight
+}
 
 
 }()
