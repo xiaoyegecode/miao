@@ -31,7 +31,7 @@ var xiaoyegecode = function () {
     return result
   }
 
-  function differerce(array, ...values) {
+  function difference(array, ...values) {
     let dif = [].concat(...values)
     return array.filter(item => !dif.includes(item))
   }
@@ -45,6 +45,14 @@ var xiaoyegecode = function () {
     array.splice(-1, n)
     return array
   }
+
+
+
+
+
+
+
+
 }
 
 
@@ -55,7 +63,7 @@ return {
   chunk: chunk,
   compact: compact,
   uniq: uniq,
-  differerce: differerce,
+  difference: differerce,
   drop: drop,
   dropRight: dropRight
 }
