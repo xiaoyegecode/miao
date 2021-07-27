@@ -42,8 +42,10 @@ var xiaoyegecode = function () {
   }
 
   function dropRight(array, n = 1) {
-    array.splice(-1, n)
-    return array
+    if (array.length < n) {
+      return []
+    }
+    return array.slice(0, array.length - n)
   }
 
   function dropRightWhile() {
@@ -54,28 +56,63 @@ var xiaoyegecode = function () {
 
   }
 
-  function fill() {
-
+  function fill(array, value, start = 0, end = array.length) {
+    for (var i = 0; i < array.length; i++) {
+      array[i] = value
+    }
+    return array
   }
 
-  function findIndex() {
-
+  function findIndex(array, f, idx = 0) {
+    var iter = iterator(f)
+    for (var i = idx; i < array.length; i++) {
+      if (iter(array[i])) {
+        return i
+      }
+    }
+    return -1
   }
 
-  function findLastIndex() {
 
+  function findLastIndex(array, f, idx = array.length - 1) {
+    var iter = iterator(f)
+    for (var i = idx; i >= 0; i--) {
+      if (iter(array[i])) {
+        return i
+      }
+    }
+    return -1
   }
 
-  function flatten() {
-
+  function flatten(array) {
+    return [].concat(...array)
   }
 
-  function flattenDeep() {
-
+  function flattenDeep(array) {
+    var result = []
+    for (var i = 0; i < array.length; i++) {
+      if (Array.isArray(array[i])) {
+        result = result.concat(flattenDeep(array[i]))
+      } else {
+        result.push(array[i])
+      }
+    }
+    return result
   }
 
-  function flattenDepth() {
-
+  function flattenDepth(array, depth = 1) {
+    if (depth == 0) {
+      return array
+    }
+    var result = []
+    for (var i = 0; i < array.length; i++) {
+      if (Array.isArray(array[i])) {
+        result = result.concat(flattenDepth(array[i], depth - 1))
+      } else {
+        result.push(array[i])
+      }
+    }
+    return result
   }
 
   function fromPairs() {
@@ -211,6 +248,34 @@ var xiaoyegecode = function () {
     difference: difference,
     drop: drop,
     dropRight: dropRight,
+    fill: fill,
+    findIndex: findIndex,
+    findLastIndex: findLastIndex,
+    flatten: flatten,
+    flattenDeep: flattenDeep,
+    flatMapDepth: flatMapDepth,
+    fromPairs: fromPairs,
+    head: head,
+    indexOf: indexOf,
+    initial: initial,
+    intersection: intersection,
+    join: join,
+    last: last,
+    lastIndexOf: lastIndexOf,
+    pull: pull,
+    reverse: reverse,
+    sortedIndex: sortedIndex,
+    union: union,
+    unionb: unionBy,
+    unzip: unzip,
+    without: without,
+    xor: xor,
+    zip: zip,
+    countBy: countBy,
+    every: every,
+    filter: filter,
+    find: find,
+
 
   }
 
