@@ -204,26 +204,18 @@ var xiaoyegecode = function () {
 
 
 
+  return {
+    chunk: chunk,
+    compact: compact,
+    uniq: uniq,
+    difference: difference,
+    drop: drop,
+    dropRight: dropRight,
+
+  }
+
+}()
 
 
-
-
-
-}
-
-
-
-
-
-return {
-  chunk: chunk,
-  compact: compact,
-  uniq: uniq,
-  difference: differerce,
-  drop: drop,
-  dropRight: dropRight,
-
-
-}
 
 
