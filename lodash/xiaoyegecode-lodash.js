@@ -46,6 +46,162 @@ var xiaoyegecode = function () {
     return array
   }
 
+  function dropRightWhile() {
+
+  }
+
+  function dropWhile() {
+
+  }
+
+  function fill() {
+
+  }
+
+  function findIndex() {
+
+  }
+
+  function findLastIndex() {
+
+  }
+
+  function flatten() {
+
+  }
+
+  function flattenDeep() {
+
+  }
+
+  function flattenDepth() {
+
+  }
+
+  function fromPairs() {
+
+  }
+
+  function head() {
+
+  }
+
+  function indexOf() {
+
+  }
+
+  function initial() {
+
+  }
+
+  function intersection() {
+
+  }
+
+  function join() {
+
+  }
+
+  function last() {
+
+  }
+
+  function lastIndexOf() {
+
+  }
+
+  function pull() {
+
+  }
+
+  function reverse() {
+
+  }
+
+  function sortedIndex() {
+
+  }
+
+  function union() {
+
+  }
+
+  function unionBy() {
+
+  }
+
+  function unzip() {
+
+  }
+
+  function without() {
+
+  }
+
+  function xor() {
+
+  }
+
+  function zip() {
+
+  }
+
+  function countBy() {
+
+  }
+
+  function every() {
+
+  }
+
+  function filter() {
+
+  }
+
+  function find() {
+
+  }
+
+  function flatMap() {
+
+  }
+
+  function flatMapDepth() {
+
+  }
+
+  function forEach() {
+
+  }
+
+  function groupBy() {
+
+  }
+
+  function keyBy() {
+
+  }
+
+  function map() {
+
+  }
+
+  function partition() {
+
+  }
+
+  function reduce() {
+
+  }
+
+  function reduceRight() {
+
+  }
+
+  function reject() {
+
+  }
+
 
 
 
@@ -65,8 +221,9 @@ return {
   uniq: uniq,
   difference: differerce,
   drop: drop,
-  dropRight: dropRight
+  dropRight: dropRight,
+
+
 }
 
 
-}()
