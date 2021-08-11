@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js太阳系</title>
+  <style>
+    #bcg {
+      position: relative;
+      width: 100%;
+      height: 720px;
+      margin: 0 auto;
+      background-color: #000;
+
+    }
+
+    #sun {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-image: url(./sun.jpg);
+      background-size: cover;
+      margin: 0 20px;
+    }
+
+    #earht {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-image: url(./earth.jpg);
+      background-size: cover;
+      margin: 0 20px;
+    }
+
+    #moon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-image: url(./moon.jpg);
+      background-size: cover;
+      margin: 0 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="bcg">
+    <div id="sun"></div>
+    <div id="earht"></div>
+    <div id=moon></div>
+
+  </div>
+  <script>
+    var sun = document.querySelector('#sun')
+    var earht = document.querySelector('#earht')
+    var moon = document.querySelector('#moon')
+
+    var angle1 = 0
+    var angle2 = 0
+    var angle3 = 0
+
+    requestAnimationFrame(function animate(time) {
+      angle1 = time * 0.0003
+      angle2 = time * 0.001
+      angle3 = time * 0.004
+
+      var x1 = Math.cos(angle1) * 50 + 670
+      var y1 = Math.sin(angle1) * 50 + 370
+      sun.style.left = x1 + 'px'
+      sun.style.top = y1 + 'px'
+
+      var x2 = Math.cos(angle2) * 120 + 670
+      var y2 = Math.sin(angle2) * 120 + 370
+      earht.style.left = x2 + 'px'
+      earht.style.top = y2 + 'px'
+
+      var x3 = Math.cos(angle3) * 150 + 670
+      var y3 = Math.sin(angle3) * 150 + 370
+      moon.style.left = x3 + 'px'
+      moon.style.top = y3 + 'px'
+
+      requestAnimationFrame(animate);
+
+    })
+  </script>
+</body>
+
+</html>
