@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>moving-box</title>
+  <style>
+    body {
+      background-color: rgb(88, 80, 85);
+    }
+
+    #box1 {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+    }
+
+    #box2 {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: yellow;
+      position: absolute;
+      left: 100px;
+
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="box1"></div>
+  <div id="box2"></div>
+
+
+  <script>
+    // 为document绑定一个键盘按下的事件
+
+    var box1 = document.getElementById('box1')
+    var box2 = document.getElementById('box2')
+    var speed = 5
+
+    document.onkeydown = function (event) {
+      event = event || window.event;
+      switch (event.keyCode) {
+        case 37: //向左 left值减小
+          box1.style.left = box1.offsetLeft - speed + 'px'
+          break;
+        case 38: //向上 top值减小
+          box1.style.top = box1.offsetTop - speed + 'px'
+          break;
+        case 39: //向右 left值增大
+          box1.style.left = box1.offsetLeft + speed + 'px'
+          break;
+        case 40: //向下 top值增大
+          box1.style.top = box1.offsetTop + speed + 'px'
+          break;
+        case 65: //向左 left值减小
+          box2.style.left = box2.offsetLeft - speed + 'px'
+          break;
+        case 87: //向上 top值减小
+          box2.style.top = box2.offsetTop - speed + 'px'
+          break;
+        case 68: //向右 left值增大
+          box2.style.left = box2.offsetLeft + speed + 'px'
+          break;
+        case 83: //向下 top值增大
+          box2.style.top = box2.offsetTop + speed + 'px'
+          break;
+
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
