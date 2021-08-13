@@ -5,98 +5,86 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>js太阳系</title>
+  <title>太阳系运动</title>
   <style>
     body {
       background-color: #000;
     }
 
     #bcg {
+      text-align: center;
       position: relative;
-      width: 100%;
-      height: 720px;
-      margin: 0 auto;
-
-
+      top: 300px;
     }
 
     #sun {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
       position: absolute;
-      left: 50%;
-      top: 50%;
+    }
+
+    #earth {
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background-image: url(./sun.jpg);
-      background-size: cover;
-      margin: 0 20px;
-    }
-
-    #earht {
       position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background-image: url(./earth.jpg);
-      background-size: cover;
-      margin: 0 20px;
     }
 
     #moon {
-      position: absolute;
-      left: 50%;
-      top: 50%;
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background-image: url(./moon.jpg);
-      background-size: cover;
-      margin: 0 20px;
+      position: absolute;
     }
   </style>
 </head>
 
 <body>
-  <div id="bcg">
-    <div id="sun"></div>
-    <div id="earht"></div>
-    <div id=moon></div>
+  <p id="bcg">
+    <img id="sun" src="./sun.jpg" alt="">
+    <img id="earth" src="./earth.jpg" alt="">
+    <img id="moon" src="./moon.jpg" alt="">
+  </p>
 
-  </div>
   <script>
     var sun = document.querySelector('#sun')
-    var earht = document.querySelector('#earht')
+    var earth = document.querySelector('#earth')
     var moon = document.querySelector('#moon')
 
     var angle1 = 0
     var angle2 = 0
     var angle3 = 0
+    var lastTime = null
 
-    requestAnimationFrame(function animate(time) {
-      angle1 = time * 0.0002
-      angle2 = time * 0.001
-      angle3 = time * 0.003
+    function animate(time) {
+      if (lastTime != null) {
+        angle1 += (time - lastTime) * 0.001
+        angle2 += (time - lastTime) * 0.001
+        angle3 += (time - lastTime) * 0.003
+      }
+      lastTime = time
+      lastTime = time
+      var x1 = Math.sin(angle1) * 50
+      var y1 = Math.cos(angle1) * 50 + 700
+      sun.style.top = x1 + 'px'
+      sun.style.left = y1 + 'px'
 
-      var x1 = Math.cos(angle1) * 200 + 470
-      var y1 = Math.sin(angle1) * 200 + 370
-      sun.style.left = x1 + 'px'
-      sun.style.top = y1 + 'px'
+      var x2 = Math.sin(angle2) * 150 + x1
+      var y2 = Math.cos(angle2) * 150 + y1
+      earth.style.top = x2 + 'px'
+      earth.style.left = y2 + 'px'
 
-      var x2 = Math.cos(angle2) * 150 + x1
-      var y2 = Math.sin(angle2) * 150 + y1
-      earht.style.left = x2 + 'px'
-      earht.style.top = y2 + 'px'
+      var x3 = Math.sin(angle3) * 50 + x2 + 25 - 10
+      var y3 = Math.cos(angle3) * 50 + y2 + 25 - 10
+      moon.style.top = x3 + 'px'
+      moon.style.left = y3 + 'px'
 
-      var x3 = Math.cos(angle3) * 50 + x2
-      var y3 = Math.sin(angle3) * 50 + y2
-      moon.style.left = x3 + 'px'
-      moon.style.top = y3 + 'px'
+      requestAnimationFrame(animate)
+    }
 
-      requestAnimationFrame(animate);
+    requestAnimationFrame(animate)
 
-    })
   </script>
 </body>
 
