@@ -10,6 +10,11 @@
     body {
       background-color: blueviolet;
     }
+
+    .dott {
+      font-size: 30px;
+      color: rgb(5, 235, 166);
+    }
   </style>
 </head>
 
@@ -21,28 +26,36 @@
     var last2 = 0
     var last3 = 0
 
-    window.addEventListener('click',e=>{
-      console.log('click')
-      var time = Date.now()
-      
+    // window.addEventListener('click', e => {
+    //   console.log('click')
+    //   var time = Date.now()
+    //   if (time - last2 < 400 && last2 - last1 > 400) {
+    //     console.log('triple click')
+    //   }
 
+    //   last1 = last2
+    //   last2 = last3
+    //   last3 = time
 
-
-
-    })
+    // })
     var btn = document.getElementById('btn')
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', () => {
       var dot = document.createElement('div')
       dot.innerHTML = '这是单击'
       document.body.appendChild(dot)
-    })
-    btn.addEventListener('dblclick', function () {
-      var dot = document.createElement('div')
-      dot.innerHTML = '这是双击'
-      document.body.appendChild(dot)
+      var time = Date.now()
+      if (time - last2 < 500 && last2 - last1 > 500) {
+        var dott = document.createElement('div')
+        dott.className = 'dott'
+        dott.innerHTML = '这是三击'
+        document.body.appendChild(dott)
+
+      }
+      last1 = last2
+      last2 = last3
+      last3 = time
     })
 
-    
   </script>
 </body>
 
