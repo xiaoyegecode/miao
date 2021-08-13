@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>moving-box</title>
+  <style>
+    body {
+      background-color: rebeccapurple;
+    }
+
+    #box1,
+    #box2 {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: absolute;
+      left: 100px;
+    }
+
+    #box1 {
+      background-color: red;
+      top: 100px;
+    }
+
+    #box2 {
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="box1"></div>
+  <div id="box2"></div>
+
+  <script>
+    // 为document绑定一个键盘按下的事件
+
+    var box1 = document.getElementById('box1')
+    var box2 = document.getElementById('box2')
+    var speed = 5
+
+    //创建各个方向条件判断初始变量
+    var left = false;
+    var right = false;
+    var top = false;
+    var bottom = false;
+
+    document.onkeydown = function (event) {
+      event = event || window.event;
+      switch (event.keyCode) {
+        case 37: //向左 left值减小
+          left = true;
+          box1.style.left = box1.offsetLeft - speed + 'px'
+          break;
+        case 38: //向上 top值减小
+          top = true;
+          box1.style.top = box1.offsetTop - speed + 'px'
+          break;
+        case 39: //向右 left值增大
+          right = true;
+          box1.style.left = box1.offsetLeft + speed + 'px'
+          break;
+        case 40: //向下 top值增大
+          bottom = true;
+          box1.style.top = box1.offsetTop + speed + 'px'
+          break;
+        case 65: //向左 left值减小
+          left = true;
+          box2.style.left = box2.offsetLeft - speed + 'px'
+          break;
+        case 87: //向上 top值减小
+          top = true;
+          box2.style.top = box2.offsetTop - speed + 'px'
+          break;
+        case 68: //向右 left值增大
+          right = true;
+          box2.style.left = box2.offsetLeft + speed + 'px'
+          break;
+        case 83: //向下 top值增大
+          bottom = true;
+          box2.style.top = box2.offsetTop + speed + 'px'
+          break;
+
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
