@@ -7,43 +7,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>拖拽</title>
   <style>
-    #box1 {
+    body {
+      background-color: indigo;
+    }
+
+    .box {
       width: 50px;
       height: 50px;
-      background-color: red;
+      border-radius: 50%;
       position: absolute;
+
     }
   </style>
-  <script>
-    window.onload = function () {
-      // 为box1绑定一个鼠标按下事件
-      var box1 = document.getElementById('box1')
-      // 当鼠标在目标元素上被按下时 开始拖拽
-      box1.onmousedown = function (event) {
-        var ol = event.clientX - box1.offsetLeft
-        var ot = event.clientY - box1.offsetTop
-        // 为document绑定一个onmousemove事件
-        // div的水平偏移量 鼠标.clientX - 元素.offsetLeft
-        // div的垂直偏移量 鼠标.clientY - 元素.offsetTop
-        document.onmousemove = function (event) {
-          event = event || window.event
-          // 获取鼠标的坐标
-          var left = event.clientX - ol
-          var top = event.clientY - ot
-          box1.style.left = left + 'px'
-          box1.style.top = top + 'px'
-        }
-      }
-      document.onmouseup = function () {
-        document.onmousemove = null
-        document.onmousedown = null
-      }
-    }
-  </script>
+
 </head>
 
 <body>
-  <div id="box1"></div>
+  <main>
+    <div class="box" style="left: 100px; top: 100px; background-color: red;"></div>
+    <div class="box" style="left: 100px; top: 200px; background-color:gold;"></div>
+    <div class="box" style="left: 100px; top: 300px; background-color: green;"></div>
+  </main>
+  <script>
+    let divs = document.querySelectorAll('.box')
+    let stickyFactor = 25;
+
+    function getReletivePos(node) {
+      let rect = node.getBoundingClientRect();
+      return {
+        x: window.event.clientX - rect.x,
+        y: window.event.clientY - rect.y,
+      }
+    }
+    window.addEventListener("resize", resize);
+    function resize(e) {
+      Array.from(divs).forEach((div) => {
+        let rect = div.getBoundingClientRect();
+        if (rect.x > window.innerWidth - rect.width) {
+          console.log(rect.x, window.innerWidth - rect.x)
+          div.style.left = window.innerWidth - rect.width + "px";
+        }
+        if (rect.y > window.innerHeight - rect.height) {
+          div.style.top = window.innerHeight - rect.height + "px";
+        }
+      });
+    }
+
+
+    Array.from(divs).forEach((div) => {
+      div.addEventListener('mousedown', function (e) {
+        let pos = getReletivePos(div);
+        if (e.button == 0) {
+          div.parentNode.insertBefore(div, null);
+          window.addEventListener('mousemove', move)
+          window.addEventListener('mouseup', reset)
+
+        }
+        function move(e) {
+          let x = e.pageX - pos.x
+          let y = e.pageY - pos.y
+          let rect = div.getBoundingClientRect();
+          if (x < stickyFactor) {
+            x = 0;
+          }
+          if (y < stickyFactor) {
+            y = 0;
+          }
+          if (x > window.innerWidth - rect.width - stickyFactor) {
+            x = window.innerWidth - rect.width;
+          }
+          if (y > window.innerHeight - rect.height - stickyFactor) {
+            y = window.innerHeight - rect.height;
+          }
+
+          div.style.left = x + "px";
+          div.style.top = y + "px";
+        }
+
+        function reset(e) {
+          window.removeEventListener("mousemove", move);
+        }
+      })
+    })
+  </script>
 </body>
 
 </html>
