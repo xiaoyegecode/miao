@@ -11,82 +11,183 @@
       background-color: rebeccapurple;
     }
 
-    #box1,
-    #box2 {
+    div {
       width: 50px;
       height: 50px;
       border-radius: 50%;
+      background-color: hotpink;
       position: absolute;
-      left: 100px;
-    }
-
-    #box1 {
-      background-color: red;
-      top: 100px;
-    }
-
-    #box2 {
-      background-color: yellow;
     }
   </style>
 </head>
 
 <body>
 
-  <div id="box1"></div>
-  <div id="box2"></div>
+  <div class="p1" style="left: 100px; top: 100px;"></div>
+  <div class="p2" style="left: 200px; top: 100px;background-color: gold;"></div>
 
   <script>
-    // 为document绑定一个键盘按下的事件
+    //获取元素
+    let p1 = document.querySelector(".p1");
+    let p2 = document.querySelector(".p2");
 
-    var box1 = document.getElementById('box1')
-    var box2 = document.getElementById('box2')
-    var speed = 5
-
-    //创建各个方向条件判断初始变量
-    var left = false;
-    var right = false;
-    var top = false;
-    var bottom = false;
-
-    document.onkeydown = function (event) {
-      event = event || window.event;
-      switch (event.keyCode) {
-        case 37: //向左 left值减小
-          left = true;
-          box1.style.left = box1.offsetLeft - speed + 'px'
-          break;
-        case 38: //向上 top值减小
-          top = true;
-          box1.style.top = box1.offsetTop - speed + 'px'
-          break;
-        case 39: //向右 left值增大
-          right = true;
-          box1.style.left = box1.offsetLeft + speed + 'px'
-          break;
-        case 40: //向下 top值增大
-          bottom = true;
-          box1.style.top = box1.offsetTop + speed + 'px'
-          break;
-        case 65: //向左 left值减小
-          left = true;
-          box2.style.left = box2.offsetLeft - speed + 'px'
-          break;
-        case 87: //向上 top值减小
-          top = true;
-          box2.style.top = box2.offsetTop - speed + 'px'
-          break;
-        case 68: //向右 left值增大
-          right = true;
-          box2.style.left = box2.offsetLeft + speed + 'px'
-          break;
-        case 83: //向下 top值增大
-          bottom = true;
-          box2.style.top = box2.offsetTop + speed + 'px'
-          break;
-
-      }
+    let stats1 = {
+      vh: 0,
+      currentVH: 1,
+      vv: 0,
+      currentVV: 1,
+      leftPressed: 0,
+      rightPressed: 0,
+      upPressed: 0,
+      downPressed: 0,
     }
+
+    let stats2 = {
+      vh: 0,
+      currentVH: 1,
+      vv: 0,
+      currentVV: 1,
+      leftPressed: 0,
+      rightPressed: 0,
+      upPressed: 0,
+      downPressed: 0,
+    }
+    //键盘按下绑定事件
+    document.addEventListener('keydown', function (e) {
+      if (e.code == "ArrowLeft") {
+        stats1.leftPressed = 1;
+        stats1.vh = -stats1.currentVH;
+      }
+      if (e.code == "ArrowRight") {
+        stats1.rightPressed = 1;
+        stats1.vh = stats1.currentVH;
+      }
+      if (e.code == "ArrowUp") {
+        stats1.upPressed = 1;
+        stats1.vv = -stats1.currentVV;
+      }
+      if (e.code == "ArrowDown") {
+        stats1.downPressed = 1;
+        stats1.vv = stats1.currentVV;
+      }
+      if (e.code == "KeyA") {
+        stats2.leftPressed = 1;
+        stats2.vh = -stats2.currentVH;
+      }
+      if (e.code == "KeyD") {
+        stats2.rightPressed = 1;
+        stats2.vh = stats2.currentVH;
+      }
+      if (e.code == "KeyW") {
+        stats2.upPressed = 1;
+        stats2.vv = -stats2.currentVV;
+      }
+      if (e.code == "KeyS") {
+        stats2.downPressed = 1;
+        stats2.vv = stats2.currentVV;
+      }
+    })
+    //键盘松开绑定事件
+    document.addEventListener('keyup', function (e) {
+      if (e.code == "ArrowLeft") {
+        stats1.leftPressed = 0;
+        if (stats1.rightPressed) {
+          stats1.vh = stats1.currentVH;
+        } else {
+          stats1.vh = 0;
+        }
+      }
+      if (e.code == "ArrowRight") {
+        stats1.rightPressed = 0;
+        if (stats1.leftPressed) {
+          stats1.vh = -stats1.currentVH;
+        } else {
+          stats1.vh = 0;
+        }
+      }
+      if (e.code == "ArrowUp") {
+        stats1.upPressed = 0;
+        if (stats1.downPressed) {
+          stats1.vv = stats1.currentVV;
+        } else {
+          stats1.vv = 0;
+        }
+      }
+      if (e.code == "ArrowDown") {
+        stats1.downPressed = 0;
+        if (stats1.upPressed) {
+          stats1.vv = -stats1.currentVV;
+        } else {
+          stats1.vv = 0;
+        }
+      }
+      if (e.code == "KeyA") {
+        stats2.leftPressed = 0;
+        if (stats2.rightPressed) {
+          stats2.vh = stats2.currentVH;
+        } else {
+          stats2.vh = 0;
+        }
+      }
+      if (e.code == "KeyD") {
+        stats2.rightPressed = 0;
+        if (stats2.leftPressed) {
+          stats2.vh = -stats2.currentVH;
+        } else {
+          stats2.vh = 0;
+        }
+      }
+      if (e.code == "KeyW") {
+        stats2.upPressed = 0;
+        if (stats2.downPressed) {
+          stats2.vv = stats2.currentVV;
+        } else {
+          stats2.vv = 0;
+        }
+      }
+      if (e.code == "KeyS") {
+        stats2.downPressed = 0;
+        if (stats2.upPressed) {
+          stats2.vv = -stats2.currentVV;
+        } else {
+          stats2.vv = 0;
+        }
+      }
+    })
+
+    let lastTime = null
+    requestAnimationFrame(function move(time) {
+      let timeElapsed
+      if (lastTime != null) {
+        timeElapsed = time - lastTime
+      } else {
+        timeElapsed = 0
+      }
+      lastTime = time
+      let dx1 = stats1.vh * timeElapsed * 0.2;
+      let dy1 = stats1.vv * timeElapsed * 0.2;
+
+      let dx2 = stats2.vh * timeElapsed * 0.2;
+      let dy2 = stats2.vv * timeElapsed * 0.2;
+
+      // 如果斜着走，将速度变为原来的 1/sqrt(2)
+      if (stats1.upPressed || stats1.downPressed) {
+        dx1 *= Math.SQRT1_2;
+        dx2 *= Math.SQRT1_2;
+      }
+      if (stats1.leftPressed || stats1.rightPressed) {
+        dy1 *= Math.SQRT1_2;
+        dy2 *= Math.SQRT1_2;
+      }
+
+      p1.style.left = parseFloat(p1.style.left) + dx1 + "px";
+      p1.style.top = parseFloat(p1.style.top) + dy1 + "px";
+
+      p2.style.left = parseFloat(p2.style.left) + dx2 + "px";
+      p2.style.top = parseFloat(p2.style.top) + dy2 + "px";
+
+      requestAnimationFrame(move);
+    })
 
 
   </script>
